@@ -9,6 +9,10 @@
 #endif
 #endif
 
+#if ARDUHAL_LOG_LEVEL >= ARDUHAL_LOG_LEVEL_INFO
+#include "chip-debug-report.h"
+#endif
+
 #ifndef ARDUINO_LOOP_STACK_SIZE
 #ifndef CONFIG_ARDUINO_LOOP_STACK_SIZE
 #define ARDUINO_LOOP_STACK_SIZE 8192
@@ -39,7 +43,13 @@ __attribute__((weak)) size_t getArduinoLoopTaskStackSize(void) {
 
 void loopTask(void *pvParameters)
 {
+#if ARDUHAL_LOG_LEVEL >= ARDUHAL_LOG_LEVEL_INFO
+    printBeforeSetupInfo();
+#endif
     setup();
+#if ARDUHAL_LOG_LEVEL >= ARDUHAL_LOG_LEVEL_INFO
+    printAfterSetupInfo();
+#endif
     for(;;) {
 #if CONFIG_FREERTOS_UNICORE
         yieldIfNecessary();
