@@ -14,7 +14,7 @@
 #endif
 #include "esp_bit_defs.h"
 
-#include "esp32-hal.h"
+#include "Arduino.h"
 #include "esp32-hal-periman.h"
 
 #define printMemCapsInfo(caps) _printMemCapsInfo(MALLOC_CAP_##caps, #caps)
