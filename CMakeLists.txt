@@ -72,6 +72,13 @@ set(CORE_SRCS
   )
 
 set(LIBRARY_SRCS
+  libraries/AdafruitBusIO/Adafruit_BusIO_Register.cpp
+  libraries/AdafruitBusIO/Adafruit_I2CDevice.cpp
+  libraries/AdafruitBusIO/Adafruit_SPIDevice.cpp
+  libraries/AdafruitMPU6050/Adafruit_MPU6050.cpp
+  libraries/AdafruitUnifiedSensor/Adafruit_Sensor.cpp
+  libraries/Adafruit_HMC5883_Unified-master/Adafruit_HMC5883_U.cpp
+  libraries/Arduino-HMC5883L-dev/HMC5883L.cpp
   libraries/ArduinoOTA/src/ArduinoOTA.cpp
   libraries/AsyncUDP/src/AsyncUDP.cpp
   libraries/BluetoothSerial/src/BluetoothSerial.cpp
@@ -172,6 +179,11 @@ set(BLE_SRCS
 set(includedirs
   variants/${CONFIG_ARDUINO_VARIANT}/
   cores/esp32/
+  libraries/AdafruitBusIO
+  libraries/AdafruitMPU6050
+  libraries/AdafruitUnifiedSensor
+  libraries/Arduino-HMC5883L-dev
+  libraries/Adafruit_HMC5883_Unified-master
   libraries/ArduinoOTA/src
   libraries/AsyncUDP/src
   libraries/BLE/src
