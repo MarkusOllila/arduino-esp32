@@ -72,6 +72,8 @@ set(CORE_SRCS
   )
 
 set(LIBRARY_SRCS
+  libraries/ESP32Encoder/src/ESP32Encoder.cpp
+  libraries/ESP32Servo/src/ESP32Servo.cpp
   libraries/AdafruitBusIO/Adafruit_BusIO_Register.cpp
   libraries/AdafruitBusIO/Adafruit_I2CDevice.cpp
   libraries/AdafruitBusIO/Adafruit_SPIDevice.cpp
@@ -179,6 +181,8 @@ set(BLE_SRCS
 set(includedirs
   variants/${CONFIG_ARDUINO_VARIANT}/
   cores/esp32/
+  libraries/ESP32Encoder/src
+  libraries/ESP32Servo/src
   libraries/AdafruitBusIO
   libraries/AdafruitMPU6050
   libraries/AdafruitUnifiedSensor
