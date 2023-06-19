@@ -73,6 +73,9 @@ set(CORE_SRCS
 
 set(LIBRARY_SRCS
   libraries/ESP32Encoder/src/ESP32Encoder.cpp
+  libraries/ESP32Servo/src/analogWrite.cpp
+  libraries/ESP32Servo/src/ESP32PWM.cpp
+  libraries/ESP32Servo/src/ESP32Tone.cpp
   libraries/ESP32Servo/src/ESP32Servo.cpp
   libraries/AdafruitBusIO/Adafruit_BusIO_Register.cpp
   libraries/AdafruitBusIO/Adafruit_I2CDevice.cpp
