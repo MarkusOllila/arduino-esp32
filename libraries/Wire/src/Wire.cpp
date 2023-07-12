@@ -36,9 +36,9 @@ extern "C" {
 
 TwoWire::TwoWire(uint8_t bus_num)
     :num(bus_num & 1)
-    ,sda(-1)
-    ,scl(-1)
-    ,bufferSize(I2C_BUFFER_LENGTH) // default Wire Buffer Size
+    ,sda(SDA)
+    ,scl(SCL)
+    ,bufferSize(256) // default Wire Buffer Size
     ,rxBuffer(NULL)
     ,rxIndex(0)
     ,rxLength(0)
