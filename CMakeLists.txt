@@ -72,6 +72,9 @@ set(CORE_SRCS
   )
 
 set(LIBRARY_SRCS
+  libraries/ESP32-Arduino-MPU9250/MPU9250.cpp
+  libraries/ESP32-Arduino-MPU9250/I2Cbus.cpp
+  libraries/Adafruit_BMP280/Adafruit_BMP280.cpp
   libraries/ESP32Encoder/src/ESP32Encoder.cpp
   libraries/ESP32Servo/src/analogWrite.cpp
   libraries/ESP32Servo/src/ESP32PWM.cpp
@@ -185,6 +188,8 @@ set(BLE_SRCS
 set(includedirs
   variants/${CONFIG_ARDUINO_VARIANT}/
   cores/esp32/
+  libraries/ESP32-Arduino-MPU9250
+  libraries/Adafruit_BMP280
   libraries/ESP32Encoder/src
   libraries/ESP32Servo/src
   libraries/mpu6050/src
