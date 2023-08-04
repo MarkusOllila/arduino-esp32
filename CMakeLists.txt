@@ -185,6 +185,7 @@ set(BLE_SRCS
 set(includedirs
   variants/${CONFIG_ARDUINO_VARIANT}/
   cores/esp32/
+  libraries/ArduinoEigen
   libraries/ESP32Encoder/src
   libraries/ESP32Servo/src
   libraries/mpu6050/src
