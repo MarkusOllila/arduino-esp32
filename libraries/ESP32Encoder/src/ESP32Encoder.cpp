@@ -7,11 +7,22 @@
 
 #include <ESP32Encoder.h>
 #include <soc/soc_caps.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "freertos/semphr.h"
+#include "esp_timer.h"
+#include "Arduino.h"
 #if SOC_PCNT_SUPPORTED
 // Not all esp32 chips support the pcnt (notably the esp32c3 does not)
 #include <soc/pcnt_struct.h>
 #include "esp_log.h"
 #include "esp_ipc.h"
+
+// ESP-IDF specific includes
+extern "C"
+{
+#include "esp_task_wdt.h"
+}
 
 static const char* TAG = "ESP32Encoder";
 
@@ -137,8 +148,8 @@ void ESP32Encoder::attach(int a, int b, enum encType et) {
 	this->bPinNumber = (gpio_num_t) b;
 
 	//Set up the IO state of hte pin
-	gpio_pad_select_gpio(aPinNumber);
-	gpio_pad_select_gpio(bPinNumber);
+	esp_rom_gpio_pad_select_gpio(aPinNumber);
+	esp_rom_gpio_pad_select_gpio(bPinNumber);
 	gpio_set_direction(aPinNumber, GPIO_MODE_INPUT);
 	gpio_set_direction(bPinNumber, GPIO_MODE_INPUT);
 	if(useInternalWeakPullResistors==DOWN){
@@ -209,10 +220,11 @@ void ESP32Encoder::attach(int a, int b, enum encType et) {
 			esp_err_t ipc_ret_code = ESP_FAIL;
 			esp_err_t er = esp_ipc_call_blocking(isrServiceCpuCore, ipc_install_isr_on_core, &ipc_ret_code);
 			if (er != ESP_OK){
-				ESP_LOGE(TAG, "IPC call to install isr service on core %d failed", isrServiceCpuCore);
+				ESP_LOGE(TAG, "IPC call to install isr service on core %u failed", (unsigned int)isrServiceCpuCore);
+
 			}
 			if (ipc_ret_code != ESP_OK){
-				ESP_LOGE(TAG, "Encoder install isr service on core %d failed", isrServiceCpuCore);
+				ESP_LOGE(TAG, "Encoder install isr service on core %u failed", (unsigned int)isrServiceCpuCore);
 			}
 		}
 
