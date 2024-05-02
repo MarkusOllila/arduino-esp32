@@ -254,15 +254,15 @@ set(ARDUINO_LIBRARY_ESP32Servo_SRCS
   libraries/ESP32Servo/src/ESP32PWM.cpp
   libraries/ESP32Servo/src/ESP32Tone.cpp
   libraries/ESP32Servo/src/ESP32Servo.cpp)
-set(ARDUINO_LIBRARY_mpu6050_SRCS
-  libraries/mpu6050/src/I2Cdev.cpp
-  libraries/mpu6050/src/MPU6050.cpp)
+
+set(ARDUINO_LIBRARY_ESP32-Arduino-MPU9250_SRC
+  libraries/ESP32-Arduino-MPU9250/MPU9250.cpp
+  libraries/ESP32-Arduino-MPU9250/I2Cbus.cpp)
+
 set(ARDUINO_LIBRARY_AdafruitBusIO_SRCS
   libraries/AdafruitBusIO/Adafruit_BusIO_Register.cpp
   libraries/AdafruitBusIO/Adafruit_I2CDevice.cpp
   libraries/AdafruitBusIO/Adafruit_SPIDevice.cpp)
-set(ARDUINO_LIBRARY_AdafruitMPU6050_SRCS
-  libraries/AdafruitMPU6050/Adafruit_MPU6050.cpp)
 set(ARDUINO_LIBRARY_AdafruitUnifiedSensor_SRCS
   libraries/AdafruitUnifiedSensor/Adafruit_Sensor.cpp)
 set(ARDUINO_LIBRARY_Adafruit_HMC5883_Unified_SRCS
@@ -276,7 +276,7 @@ set(ARDUINO_LIBRARIES_INCLUDEDIRS)
 # Append new library sources
 list(APPEND ARDUINO_LIBRARIES_SRCS 
   ${ARDUINO_LIBRARY_ESP32Encoder_SRCS}
-  ${ARDUINO_LIBRARY_mpu6050_SRCS}
+  ${ARDUINO_LIBRARY_ESP32-Arduino-MPU9250_SRC}
   ${ARDUINO_LIBRARY_AdafruitBusIO_SRCS}
   ${ARDUINO_LIBRARY_AdafruitMPU6050_SRCS}
   ${ARDUINO_LIBRARY_AdafruitUnifiedSensor_SRCS}
@@ -285,7 +285,7 @@ list(APPEND ARDUINO_LIBRARIES_SRCS
 list(APPEND ARDUINO_LIBRARIES_INCLUDEDIRS
   libraries/ArduinoEigen
   libraries/ESP32Encoder/src
-  libraries/mpu6050/src
+  libraries/ESP32-Arduino-MPU9250
   libraries/AdafruitBusIO
   libraries/AdafruitMPU6050
   libraries/AdafruitUnifiedSensor
