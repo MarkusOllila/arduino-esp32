@@ -265,9 +265,6 @@ set(ARDUINO_LIBRARY_AdafruitBusIO_SRCS
   libraries/AdafruitBusIO/Adafruit_SPIDevice.cpp)
 set(ARDUINO_LIBRARY_AdafruitUnifiedSensor_SRCS
   libraries/AdafruitUnifiedSensor/Adafruit_Sensor.cpp)
-set(ARDUINO_LIBRARY_Adafruit_HMC5883_Unified_SRCS
-  libraries/Adafruit_HMC5883_Unified-master/Adafruit_HMC5883_U.cpp)
-  
 
 set(ARDUINO_LIBRARIES_SRCS)
 set(ARDUINO_LIBRARIES_REQUIRES)
@@ -279,8 +276,7 @@ list(APPEND ARDUINO_LIBRARIES_SRCS
   ${ARDUINO_LIBRARY_ESP32-Arduino-MPU9250_SRC}
   ${ARDUINO_LIBRARY_AdafruitBusIO_SRCS}
   ${ARDUINO_LIBRARY_AdafruitMPU6050_SRCS}
-  ${ARDUINO_LIBRARY_AdafruitUnifiedSensor_SRCS}
-  ${ARDUINO_LIBRARY_Adafruit_HMC5883_Unified_SRCS})
+  ${ARDUINO_LIBRARY_AdafruitUnifiedSensor_SRCS})
 
 list(APPEND ARDUINO_LIBRARIES_INCLUDEDIRS
   libraries/ArduinoEigen
@@ -288,8 +284,7 @@ list(APPEND ARDUINO_LIBRARIES_INCLUDEDIRS
   libraries/ESP32-Arduino-MPU9250
   libraries/AdafruitBusIO
   libraries/AdafruitMPU6050
-  libraries/AdafruitUnifiedSensor
-  libraries/Adafruit_HMC5883_Unified-master)
+  libraries/AdafruitUnifiedSensor)
 
 
 
